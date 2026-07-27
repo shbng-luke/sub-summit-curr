@@ -1169,7 +1169,61 @@
   })();
 </script>
 
-
+<!-- ── FIXED TICKET BUTTON ───────────────────────────────── -->
+<style>
+  .fixed-ticket-btn {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    z-index: 900;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform-origin: left center;
+    background: var(--amber);
+    color: var(--dark);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 18px 12px;
+    border-radius: 0 6px 6px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.35s, transform 0.35s;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.3);
+  }
+  .fixed-ticket-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+  }
+  .fixed-ticket-btn:hover { background: var(--amber-dark); }
+  @media (max-width: 768px) { .fixed-ticket-btn { display: none; } }
+</style>
+<a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026"
+   target="_blank" rel="noopener"
+   class="fixed-ticket-btn"
+   id="fixedTicketBtn">Buy Earlybird Tickets Here</a>
+<script>
+  (function() {
+    var btn = document.getElementById('fixedTicketBtn');
+    var hero = document.querySelector('.hero');
+    function onScroll() {
+      if (!hero) return;
+      var heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 
 <!-- ── BOOK TICKETS NOW ───────────────────────────────────── -->
 <section class="book-now" id="book">
@@ -1219,7 +1273,7 @@
           <p class="schedule-title">Arrival Networking &amp; Coffee</p>
           <div class="schedule-items">
             <div class="schedule-item"><span class="schedule-item-kind">Welcome</span><span>Registrations, community introductions &amp; expo engagement</span></div>
-            <div class="schedule-item"><span class="schedule-item-kind">Coffee</span><span>Coffee &amp; community hospitality partner TBC</span></div>
+            <div class="schedule-item"><span class="schedule-item-kind">Coffee</span><span>Coffee &amp; community hospitality provided</span></div>
           </div>
         </div>
       </div>
