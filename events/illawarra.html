@@ -1157,6 +1157,529 @@
 </script>
 
 
+<!-- ── PROGRAM ───────────────────────────────────────────── -->
+<section class="il-program" id="program">
+<style>
+  .il-program {
+    background: var(--dark-2);
+    padding: 80px 0;
+  }
+  .il-program .section-header { margin-bottom: 12px; }
+  .il-program-sub {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto 56px;
+    line-height: 1.65;
+  }
+  .il-program-sub strong { color: var(--amber); font-weight: 700; }
+
+  /* Timeline */
+  .il-timeline { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+
+  .il-block {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 28px;
+    position: relative;
+  }
+  .il-block + .il-block { margin-top: 0; }
+
+  /* Time column */
+  .il-time-col {
+    text-align: right;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  .il-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* Spine */
+  .il-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 0;
+    width: 28px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 100px;
+    top: 0;
+    bottom: 0;
+  }
+  .il-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+    margin-top: 6px;
+    z-index: 1;
+  }
+  .il-dot.il-dot-break { background: var(--green); }
+  .il-dot.il-dot-social { background: #7b8fa6; }
+  .il-line {
+    width: 2px;
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    margin-top: 4px;
+  }
+
+  /* Content card */
+  .il-card {
+    background: var(--dark-3);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 12px 0 12px 40px;
+    border-left: 3px solid var(--amber);
+  }
+  .il-card.il-card-break { border-left-color: var(--green); }
+  .il-card.il-card-social { border-left-color: #7b8fa6; }
+  .il-card.il-card-open { border-left-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); }
+
+  .il-card-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .il-card.il-card-break .il-card-label { color: var(--green); }
+  .il-card.il-card-social .il-card-label { color: #7b8fa6; }
+  .il-card.il-card-open .il-card-label { color: var(--text-muted); }
+
+  .il-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .il-card-subtitle {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .il-card-body {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  .il-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .il-topic {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  .il-orgs {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .il-org {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    background: rgba(245,166,35,0.1);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+  .il-card.il-card-break .il-org { color: var(--green); background: rgba(104,146,91,0.15); }
+  .il-card.il-card-social .il-org { color: #7b8fa6; background: rgba(123,143,166,0.12); }
+
+  .il-includes {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .il-include {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  .il-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 40px;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .il-block { grid-template-columns: 72px 1fr; gap: 0 16px; }
+    .il-time { font-size: 11px; }
+    .il-card { margin-left: 28px; padding: 16px 16px; }
+    .il-spine { left: 72px; }
+  }
+</style>
+
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Draft Program</p>
+      <h2 class="section-title">September 17, 2026</h2>
+    </div>
+    <p class="il-program-sub"><strong>Driving Business · Backing Success · Connecting Community</strong><br>Building collaboration across Kiama, Shellharbour and Wollongong through leadership, innovation, business growth and community impact.</p>
+
+    <div class="il-timeline">
+
+      <!-- BUMP IN -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">7:00am<br>– 8:00am</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-open"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-open">
+          <p class="il-card-label">Setup</p>
+          <p class="il-card-title">Exhibitor &amp; Partner Bump-In</p>
+          <div class="il-includes">
+            <span class="il-include">Trade stand setup</span><span class="il-include">Sponsor activations</span><span class="il-include">AV checks</span><span class="il-include">Speaker preparation</span><span class="il-include">Exhibitor registrations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VENUE OPENS -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">8:10am</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-open"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-open">
+          <p class="il-card-label">Doors Open</p>
+          <p class="il-card-title">Venue Opens</p>
+          <p class="il-card-body">Delegates, exhibitors, sponsors and speakers welcomed.</p>
+        </div>
+      </div>
+
+      <!-- ARRIVAL NETWORKING -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">8:10am<br>– 9:10am</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-social"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-social">
+          <p class="il-card-label">Networking</p>
+          <p class="il-card-title">Arrival Networking &amp; Coffee</p>
+          <div class="il-orgs">
+            <span class="il-org">My Three Beans — Coffee Partner</span>
+            <span class="il-org">Sydney Brewers — Community Hospitality</span>
+          </div>
+          <div class="il-includes">
+            <span class="il-include">Registrations</span><span class="il-include">Networking</span><span class="il-include">Sponsor activations</span><span class="il-include">Community introductions</span><span class="il-include">Expo engagement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OFFICIAL OPENING -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">9:10am<br>– 9:20am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Opening</p>
+          <p class="il-card-title">Official Opening</p>
+          <div class="il-orgs">
+            <span class="il-org">Welcome to Country</span>
+            <span class="il-org">Prism</span>
+            <span class="il-org">The Back Doctor</span>
+          </div>
+          <div class="il-includes">
+            <span class="il-include">Welcome to Country</span><span class="il-include">Official Welcome</span><span class="il-include">Partner acknowledgements</span><span class="il-include">Program overview</span><span class="il-include">Conference theme</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGIONAL LEADERSHIP PANEL -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">9:20am<br>– 9:45am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel</p>
+          <p class="il-card-title">Regional Leadership Panel</p>
+          <p class="il-card-subtitle">The Future of the Illawarra</p>
+          <div class="il-orgs">
+            <span class="il-org">Kiama Municipal Council</span>
+            <span class="il-org">Shellharbour City Council</span>
+            <span class="il-org">Wollongong City Council</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Regional collaboration</span><span class="il-topic">Economic development</span><span class="il-topic">Population growth</span><span class="il-topic">Tourism</span><span class="il-topic">Investment attraction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL ONE -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">9:45am<br>– 10:15am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel One</p>
+          <p class="il-card-title">The Illawarra Story</p>
+          <p class="il-card-subtitle">Past · Present · Future</p>
+          <div class="il-orgs">
+            <span class="il-org">Shellharbour City Council</span>
+            <span class="il-org">Grace Church</span>
+            <span class="il-org">Momentuum AI</span>
+            <span class="il-org">Stone Real Estate</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Evolution of the Illawarra</span><span class="il-topic">Today's business landscape</span><span class="il-topic">Emerging industries</span><span class="il-topic">Future growth</span><span class="il-topic">Retaining local talent</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOD SESSION -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">10:15am<br>– 10:30am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Presentation</p>
+          <p class="il-card-title">Supporting Community Through Food</p>
+          <div class="il-orgs"><span class="il-org">Sydney Brewers</span></div>
+          <div class="il-topics">
+            <span class="il-topic">Food as a community connector</span><span class="il-topic">Hospitality leadership</span><span class="il-topic">Supporting local charities</span><span class="il-topic">Building stronger communities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MORNING TEA -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">10:30am<br>– 11:00am</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-break"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-break">
+          <p class="il-card-label">Break</p>
+          <p class="il-card-title">Morning Tea</p>
+          <div class="il-orgs"><span class="il-org">Hosted by Sydney Brewers</span></div>
+          <div class="il-includes">
+            <span class="il-include">Networking</span><span class="il-include">Expo engagement</span><span class="il-include">Sponsor activations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEYNOTE - BACK DOCTOR -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">11:00am<br>– 11:15am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Inspirational Keynote</p>
+          <p class="il-card-title">More Than a Business — A Story of Resilience</p>
+          <div class="il-orgs"><span class="il-org">The Back Doctor</span></div>
+          <div class="il-topics">
+            <span class="il-topic">Purpose-driven business</span><span class="il-topic">Turning adversity into opportunity</span><span class="il-topic">Leadership through resilience</span><span class="il-topic">Community importance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RUN HAVOC -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">11:15am<br>– 11:30am</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Local Success Story</p>
+          <p class="il-card-title">Run Havoc — Building Community One Step at a Time</p>
+          <div class="il-topics">
+            <span class="il-topic">Building a local brand</span><span class="il-topic">Creating a movement</span><span class="il-topic">Community engagement</span><span class="il-topic">Event activation</span><span class="il-topic">Growth through purpose</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL TWO -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">11:30am<br>– 12:00pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel Two</p>
+          <p class="il-card-title">Sports, Health &amp; Community</p>
+          <div class="il-orgs">
+            <span class="il-org">OrTech</span>
+            <span class="il-org">Oak Flats Cricket</span>
+            <span class="il-org">Dragons Women's Program</span>
+            <span class="il-org">Dance Sensation</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Youth development</span><span class="il-topic">Leadership through sport</span><span class="il-topic">Community participation</span><span class="il-topic">Health &amp; wellbeing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUILDING TOMORROW -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">12:00pm<br>– 12:20pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Presentation</p>
+          <p class="il-card-title">Building Tomorrow's Illawarra</p>
+          <p class="il-card-subtitle">Industry · Infrastructure · Innovation</p>
+          <div class="il-orgs">
+            <span class="il-org">Industry Connect</span>
+            <span class="il-org">Green Gravity</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Advanced manufacturing</span><span class="il-topic">Infrastructure investment</span><span class="il-topic">Future employment</span><span class="il-topic">Innovation &amp; economic prosperity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMART FINANCIAL -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">12:20pm<br>– 12:40pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Business Success Story</p>
+          <p class="il-card-title">Building Trust. Creating Wealth. Supporting Community.</p>
+          <div class="il-orgs"><span class="il-org">Smart Financial</span></div>
+          <div class="il-topics">
+            <span class="il-topic">Financial leadership</span><span class="il-topic">Trusted relationships</span><span class="il-topic">Supporting local families</span><span class="il-topic">Sustainable growth</span><span class="il-topic">Investing in the Illawarra</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL THREE -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">12:40pm<br>– 1:00pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel Three</p>
+          <p class="il-card-title">Charity &amp; Community Impact</p>
+          <div class="il-orgs">
+            <span class="il-org">Grace Church</span>
+            <span class="il-org">Beacon of Hope</span>
+            <span class="il-org">Generocity</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Business supporting community</span><span class="il-topic">Social impact</span><span class="il-topic">Sustainable partnerships</span><span class="il-topic">Meaningful change</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NETWORKING LUNCH -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">1:00pm<br>– 2:00pm</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-break"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-break">
+          <p class="il-card-label">Break</p>
+          <p class="il-card-title">Networking Lunch</p>
+          <div class="il-orgs"><span class="il-org">Hosted by Sydney Brewers</span></div>
+          <div class="il-includes">
+            <span class="il-include">Networking</span><span class="il-include">Expo engagement</span><span class="il-include">Sponsor meetings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL FOUR -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">2:00pm<br>– 2:30pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel Four</p>
+          <p class="il-card-title">Arts, Tourism &amp; Place Making</p>
+          <div class="il-orgs">
+            <span class="il-org">Housing Trust</span>
+            <span class="il-org">Yours &amp; Owls</span>
+            <span class="il-org">Fishing Adventures</span>
+            <span class="il-org">Children's Book Writer</span>
+            <span class="il-org">Speed Painter</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Festivals &amp; events</span><span class="il-topic">Tourism</span><span class="il-topic">Storytelling</span><span class="il-topic">Creative industries</span><span class="il-topic">Place-making</span><span class="il-topic">Destination experiences</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEYNOTE BETTER HEALTH -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">2:30pm<br>– 2:50pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Keynote</p>
+          <p class="il-card-title">Better Health — From No Friends to a Story Untold</p>
+          <div class="il-topics">
+            <span class="il-topic">Connection</span><span class="il-topic">Resilience</span><span class="il-topic">Mental health</span><span class="il-topic">Personal growth</span><span class="il-topic">Community</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL FIVE -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">2:50pm<br>– 3:30pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Panel Five</p>
+          <p class="il-card-title">Business Allies — Supporting Business Success Across the Illawarra</p>
+          <div class="il-orgs">
+            <span class="il-org">Loan Market</span>
+            <span class="il-org">Service NSW Business Bureau</span>
+            <span class="il-org">Kiama Business</span>
+            <span class="il-org">Illawarra Connect</span>
+            <span class="il-org">School of Employment</span>
+          </div>
+          <div class="il-topics">
+            <span class="il-topic">Business support services</span><span class="il-topic">Grants &amp; programs</span><span class="il-topic">Workforce development</span><span class="il-topic">Regional collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLOSING CEREMONY -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">3:30pm<br>– 4:00pm</span></div>
+        <div class="il-spine"><div class="il-dot"></div><div class="il-line"></div></div>
+        <div class="il-card">
+          <p class="il-card-label">Closing</p>
+          <p class="il-card-title">Closing Ceremony</p>
+          <div class="il-orgs"><span class="il-org">Growth Concept Development Services</span></div>
+          <div class="il-includes">
+            <span class="il-include">Key insights &amp; reflections</span><span class="il-include">Speaker appreciation</span><span class="il-include">Partner acknowledgements</span><span class="il-include">Charity outcomes</span><span class="il-include">Raffle Prize Draw</span><span class="il-include">SUB 2027 announcements</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSFER -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">4:00pm<br>– 4:30pm</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-social"></div><div class="il-line"></div></div>
+        <div class="il-card il-card-social">
+          <p class="il-card-label">Transfer</p>
+          <p class="il-card-title">Transfer to After Party</p>
+        </div>
+      </div>
+
+      <!-- AFTER PARTY -->
+      <div class="il-block">
+        <div class="il-time-col"><span class="il-time">4:30pm<br>– 7:30pm</span></div>
+        <div class="il-spine"><div class="il-dot il-dot-social"></div></div>
+        <div class="il-card il-card-social">
+          <p class="il-card-label">After Party</p>
+          <p class="il-card-title">Official SUB Illawarra After Party</p>
+          <div class="il-orgs"><span class="il-org">Dapto Leagues Club</span></div>
+          <div class="il-includes">
+            <span class="il-include">Networking</span><span class="il-include">Live entertainment</span><span class="il-include">Sponsor engagement</span><span class="il-include">Community celebration</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /il-timeline -->
+    <p class="il-note">Program subject to change. Speaker names will be confirmed as the program firms up.</p>
+  </div>
+</section>
+
 <!-- ── BOOK TICKETS NOW ───────────────────────────────────── -->
 <section class="book-now" id="book">
   <div class="book-now-bg"></div>
