@@ -748,6 +748,8 @@
       border: 1px solid rgba(255,255,255,0.09);
       border-radius: var(--radius-lg);
       overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .schedule-row {
@@ -757,8 +759,19 @@
     }
     .schedule-row:last-child { border-bottom: none; }
 
-    .schedule-row.is-break { background: rgba(245,166,35,0.05); }
-    .schedule-row.is-after { background: rgba(74,124,89,0.08); }
+    .schedule-row.is-break {
+      background: rgba(245,166,35,0.07);
+      border-left: 3px solid var(--amber);
+    }
+    .schedule-row.is-break .schedule-time { color: var(--amber); }
+    .schedule-row.is-break .schedule-stream { color: var(--amber); }
+
+    .schedule-row.is-after {
+      background: rgba(104,146,91,0.1);
+      border-left: 3px solid var(--green);
+    }
+    .schedule-row.is-after .schedule-time { color: var(--green); }
+    .schedule-row.is-after .schedule-stream { color: var(--green); }
 
     .schedule-time {
       padding: 20px 16px;
