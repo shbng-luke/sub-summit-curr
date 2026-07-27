@@ -756,8 +756,22 @@
       display: grid;
       grid-template-columns: 100px 1fr;
       border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-left: 3px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
     }
     .schedule-row:last-child { border-bottom: none; }
+    .schedule-row:hover {
+      background: rgba(255,255,255,0.04);
+      border-left-color: var(--amber);
+    }
+    .schedule-row.is-break:hover {
+      background: rgba(245,166,35,0.12);
+      border-left-color: var(--amber);
+    }
+    .schedule-row.is-after:hover {
+      background: rgba(104,146,91,0.16);
+      border-left-color: var(--green);
+    }
 
     .schedule-row.is-break {
       background: rgba(245,166,35,0.07);
