@@ -759,19 +759,19 @@
     .schedule-row {
       display: grid;
       grid-template-columns: 100px 1fr;
-      border-bottom: 1px solid rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
       border-left: 3px solid transparent;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.12);
       transition: background 0.15s, border-color 0.15s;
     }
     .schedule-row:last-child { border-bottom: none; }
     .schedule-row:hover {
-      background: rgba(0,0,0,0.32);
+      background: rgba(0,0,0,0.22);
       border-left-color: var(--amber);
     }
 
     .schedule-row.is-break {
-      background: rgba(245,166,35,0.1);
+      background: rgba(255,255,255,0.1);
       border-left: 3px solid var(--amber);
     }
     .schedule-row.is-break .schedule-time { color: var(--amber); }
