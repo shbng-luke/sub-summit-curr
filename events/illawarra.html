@@ -738,14 +738,18 @@
     /* ── PROGRAM ─────────────────────────────────────────── */
     .program {
       padding: 80px 0;
-      background: #243d1f;
+      background: var(--green);
     }
+
+    .program .section-eyebrow { color: rgba(255,255,255,0.7); }
+    .program .section-title   { color: #fff; }
+    .program .section-sub     { color: rgba(255,255,255,0.85); }
 
     .schedule-list {
       display: flex;
       flex-direction: column;
       gap: 0;
-      border: 1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: var(--radius-lg);
       overflow: hidden;
       max-width: 860px;
@@ -755,47 +759,48 @@
     .schedule-row {
       display: grid;
       grid-template-columns: 100px 1fr;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
       border-left: 3px solid transparent;
+      background: rgba(0,0,0,0.22);
       transition: background 0.2s, border-color 0.2s;
     }
     .schedule-row:last-child { border-bottom: none; }
     .schedule-row:hover {
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.34);
       border-left-color: var(--amber);
     }
     .schedule-row.is-break:hover {
-      background: rgba(245,166,35,0.12);
+      background: rgba(245,166,35,0.22);
       border-left-color: var(--amber);
     }
     .schedule-row.is-after:hover {
-      background: rgba(104,146,91,0.16);
-      border-left-color: var(--green);
+      background: rgba(0,0,0,0.38);
+      border-left-color: #fff;
     }
 
     .schedule-row.is-break {
-      background: rgba(245,166,35,0.07);
+      background: rgba(245,166,35,0.14);
       border-left: 3px solid var(--amber);
     }
     .schedule-row.is-break .schedule-time { color: var(--amber); }
     .schedule-row.is-break .schedule-stream { color: var(--amber); }
 
     .schedule-row.is-after {
-      background: rgba(104,146,91,0.1);
-      border-left: 3px solid var(--green);
+      background: rgba(0,0,0,0.3);
+      border-left: 3px solid rgba(255,255,255,0.5);
     }
-    .schedule-row.is-after .schedule-time { color: var(--green); }
-    .schedule-row.is-after .schedule-stream { color: var(--green); }
+    .schedule-row.is-after .schedule-time { color: #fff; }
+    .schedule-row.is-after .schedule-stream { color: rgba(255,255,255,0.7); }
 
     .schedule-time {
       padding: 20px 16px;
-      background: #1a2e17;
+      background: rgba(0,0,0,0.28);
       font-size: 13px;
       font-weight: 700;
       color: var(--amber);
       display: flex;
       align-items: flex-start;
-      border-right: 1px solid rgba(255,255,255,0.07);
+      border-right: 1px solid rgba(255,255,255,0.1);
     }
 
     .schedule-body {
@@ -807,7 +812,7 @@
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.65);
       margin-bottom: 4px;
     }
 
