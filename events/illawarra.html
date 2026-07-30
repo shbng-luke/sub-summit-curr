@@ -1336,17 +1336,20 @@
     color: var(--amber);
   }
 
-  /* Logo image — fill the circle, white bg */
+  /* Logo circle — background-image approach so border-radius clips correctly */
   .steering-logo-img {
-    object-fit: cover;
     border: 3px solid rgba(255,255,255,0.15);
-    background: #fff;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
-  /* Logo image on dark background (light-coloured logo) */
+  /* Dark-background logos — zoom in slightly to fill past any baked-in whitespace */
   .steering-logo-img.logo-dark-bg {
-    background: var(--dark-2);
+    background-color: var(--dark-2);
     border-color: rgba(255,255,255,0.12);
+    background-size: 130%;
   }
 
   /* Logo placeholder */
@@ -1455,7 +1458,7 @@
       <div class="steering-mc-card">
         <div class="steering-mc-media">
           <img src="../images/founder-luke-griffin2.jpg" alt="Luke Griffin" class="steering-headshot">
-          <img src="../images/logo-gcds.png" alt="GCDS" class="steering-logo-img logo-dark-bg" style="transform:scale(1.5)">
+          <div class="steering-logo-img logo-dark-bg" style="background-image:url('../images/logo-gcds.png')"></div>
         </div>
         <div class="steering-mc-body">
           <p class="steering-role">Event Director</p>
@@ -1468,7 +1471,7 @@
       <div class="steering-mc-card" style="border-color:rgba(255,255,255,0.2);">
         <div class="steering-mc-media">
           <img src="../images/bio-pic-edwin-smith.jpg" alt="Edwin Smith" class="steering-headshot">
-          <img src="../images/logo-social-sandwich.jpg" alt="The Social Sandwich" class="steering-logo-img">
+          <div class="steering-logo-img" style="background-image:url('../images/logo-social-sandwich.jpg')"></div>
         </div>
         <div class="steering-mc-body">
           <p class="steering-role">Master of Ceremonies</p>
@@ -1485,7 +1488,7 @@
 
       <div class="steering-card">
         <img src="../images/bio-pic-ava-webster.jpg" alt="Ava Webster" class="steering-headshot">
-        <img src="../images/logo-dk-thriiv.png" alt="Thriiv Digital" class="steering-logo-img logo-dark-bg">
+        <div class="steering-logo-img logo-dark-bg" style="background-image:url('../images/logo-dk-thriiv.png')"></div>
         <p class="steering-role">Website</p>
         <p class="steering-name">Ava Webster</p>
         <p class="steering-org">Thriiv Digital</p>
@@ -1494,7 +1497,7 @@
 
       <div class="steering-card">
         <img src="../images/bio-pic-lence-naumovski.jpg" alt="Lence Naumovski" class="steering-headshot">
-        <img src="../images/logo-prysm-io.jpg" alt="Prysm.io" class="steering-logo-img logo-dark-bg" style="transform:scale(1.5)">
+        <div class="steering-logo-img logo-dark-bg" style="background-image:url('../images/logo-prysm-io.jpg')"></div>
         <p class="steering-role">Lead Panel Facilitator</p>
         <p class="steering-name">Lence Naumovski</p>
         <p class="steering-org">Prysm.io</p>
@@ -1512,7 +1515,7 @@
       </div>
 
       <div class="steering-card">
-        <img src="../images/logo-groundz.jpg" alt="The Groundz" class="steering-logo-img">
+        <div class="steering-logo-img" style="background-image:url('../images/logo-groundz.jpg')"></div>
 
         <p class="steering-role">After Party Venue</p>
         <p class="steering-name">The Groundz</p>
