@@ -1259,13 +1259,276 @@
 </section>
 
 
+<!-- ── STEERING COMMITTEE ────────────────────────────────── -->
+<section class="steering" id="steering">
+<style>
+  .steering {
+    background: var(--dark);
+    padding: 80px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ── Top two cards side by side ── */
+  .steering-top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 860px;
+    margin: 48px auto 20px;
+  }
+  .steering-mc-card {
+    background: var(--dark-3);
+    border: 1px solid var(--amber);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    padding: 32px 28px;
+    transition: background 0.2s;
+    height: 100%;
+  }
+  .steering-mc-card:hover { background: rgba(255,255,255,0.03); }
+  .steering-mc-media {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  /* Every circle — headshot, logo image, logo placeholder — identical size */
+  .steering-headshot,
+  .steering-headshot-ph,
+  .steering-logo-img,
+  .steering-logo-ph {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  /* Bio photo */
+  .steering-headshot {
+    object-fit: cover;
+    border: 3px solid var(--amber);
+  }
+
+  /* Bio photo placeholder (initials) */
+  .steering-headshot-ph {
+    background: rgba(245,166,35,0.15);
+    border: 3px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--amber);
+  }
+
+  /* Logo image — fill the circle, white bg */
+  .steering-logo-img {
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.15);
+    background: #fff;
+  }
+
+  /* Logo image on dark background (light-coloured logo) */
+  .steering-logo-img.logo-dark-bg {
+    object-fit: contain;
+    padding: 10px;
+    background: var(--dark-2);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  /* Logo placeholder */
+  .steering-logo-ph {
+    background: rgba(255,255,255,0.06);
+    border: 3px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 8px;
+  }
+  .steering-mc-body { width: 100%; }
+  .steering-role {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .steering-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .steering-org {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+  .steering-org a { color: var(--amber); text-decoration: none; }
+  .steering-org a:hover { text-decoration: underline; }
+  .steering-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── Committee grid ── */
+  .steering-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .steering-card {
+    background: var(--dark-3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .steering-card:hover {
+    border-color: rgba(245,166,35,0.35);
+    background: rgba(255,255,255,0.03);
+  }
+  .steering-card .steering-headshot,
+  .steering-card .steering-headshot-ph { width: 72px; height: 72px; font-size: 22px; }
+  .steering-card .steering-role { font-size: 9px; }
+  .steering-card .steering-name { font-size: 16px; font-weight: 800; }
+  .steering-card .steering-org { font-size: 13px; margin-bottom: 0; }
+  .steering-card .steering-desc { font-size: 12px; }
+
+  .steering-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 32px;
+    font-style: italic;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 700px) {
+    .steering-top-row { grid-template-columns: 1fr; }
+    .steering-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 400px) {
+    .steering-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">The Team Behind the Day</p>
+      <h2 class="section-title">Steering Committee</h2>
+      <p class="section-sub">SUB Illawarra is driven by a group of passionate local businesses and community leaders committed to making the day a success.</p>
+    </div>
+
+    <!-- Luke & Edwin side by side -->
+    <div class="steering-top-row">
+
+      <div class="steering-mc-card">
+        <div class="steering-mc-media">
+          <img src="../images/founder-luke-griffin2.jpg" alt="Luke Griffin" class="steering-headshot">
+          <img src="../images/logo-gcds.png" alt="GCDS" class="steering-logo-img logo-dark-bg">
+        </div>
+        <div class="steering-mc-body">
+          <p class="steering-role">Event Director</p>
+          <p class="steering-name">Luke Griffin</p>
+          <p class="steering-org"><a href="https://www.growthcds.com.au" target="_blank" rel="noopener">Growth Concept Development Services</a></p>
+          <p class="steering-desc">Luke is the founder and driving force behind Suburban Business Summit — connecting local business owners, community leaders and change-makers across Australia's suburbs and regions.</p>
+        </div>
+      </div>
+
+      <div class="steering-mc-card" style="border-color:rgba(255,255,255,0.2);">
+        <div class="steering-mc-media">
+          <img src="../images/bio-pic-edwin-smith.jpg" alt="Edwin Smith" class="steering-headshot">
+          <img src="../images/logo-social-sandwich.jpg" alt="The Social Sandwich" class="steering-logo-img">
+        </div>
+        <div class="steering-mc-body">
+          <p class="steering-role">Master of Ceremonies</p>
+          <p class="steering-name">Edwin Smith</p>
+          <p class="steering-org"><a href="https://thesocialsandwich.com.au" target="_blank" rel="noopener">The Social Sandwich</a></p>
+          <p class="steering-desc">Edwin brings energy, warmth and expert facilitation to the SUB Illawarra stage — keeping the day moving, the room engaged and the conversations flowing.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Rest of committee -->
+    <div class="steering-grid">
+
+      <div class="steering-card">
+        <img src="../images/bio-pic-ava-webster.jpg" alt="Ava Webster" class="steering-headshot">
+        <img src="../images/logo-dk-thriiv.png" alt="Thriiv Digital" class="steering-logo-img logo-dark-bg">
+        <p class="steering-role">Website</p>
+        <p class="steering-name">Ava Webster</p>
+        <p class="steering-org">Thriiv Digital</p>
+        <p class="steering-desc">Designing and building the SUB Illawarra online presence.</p>
+      </div>
+
+      <div class="steering-card">
+        <img src="../images/bio-pic-lence-naumovski.jpg" alt="Lence Naumovski" class="steering-headshot">
+        <img src="../images/logo-prysm-io.jpg" alt="Prysm.io" class="steering-logo-img logo-dark-bg">
+        <p class="steering-role">Lead Panel Facilitator</p>
+        <p class="steering-name">Lence Naumovski</p>
+        <p class="steering-org">Prysm.io</p>
+        <p class="steering-desc">Leading the facilitation of panels across the day's program.</p>
+      </div>
+
+      <div class="steering-card">
+        <img src="../images/logo-groundz.jpg" alt="The Groundz" class="steering-logo-img">
+
+        <p class="steering-role">After Party Venue</p>
+        <p class="steering-name">The Groundz</p>
+        <p class="steering-org">Dapto Showgrounds</p>
+        <p class="steering-desc">Hosting the official SUB Illawarra after party — networking, live entertainment and community celebration.</p>
+      </div>
+
+      <div class="steering-card">
+        <div class="steering-headshot-ph">TJ</div>
+        <div class="steering-logo-ph">ACP Publishing</div>
+
+        <p class="steering-role">Charity Head &amp; Volunteers</p>
+        <p class="steering-name">Tony Jones</p>
+        <p class="steering-org">ACP Publishing</p>
+        <p class="steering-desc">Leading the charity component and coordinating volunteers throughout the day.</p>
+      </div>
+
+    </div>
+    <p class="steering-note">Additional steering committee members to be announced as the program firms up.</p>
+  </div>
+</section>
+
 <!-- ── PROGRAM ───────────────────────────────────────────── -->
 <section class="program" id="program">
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow">Sept 17 · Dapto Ribbonwood Centre</p>
       <h2 class="section-title">Summit Event Program</h2>
-      <p class="section-sub">A full day of speakers, panels, networking and an after party at Dapto Leagues Club. Driving Business · Backing Success · Connecting Community.</p>
+      <p class="section-sub">A full day of speakers, panels, networking and an after party at The Groundz, Dapto Showgrounds. Driving Business · Backing Success · Connecting Community.</p>
     </div>
     <div class="schedule-list">
 
@@ -1485,7 +1748,7 @@
         <div class="schedule-time">4:30pm</div>
         <div class="schedule-body">
           <p class="schedule-stream">After Party</p>
-          <p class="schedule-title">Official SUB Illawarra After Party — Dapto Leagues Club</p>
+          <p class="schedule-title">Official SUB Illawarra After Party — The Groundz, Dapto Showgrounds</p>
           <div class="schedule-items">
             <div class="schedule-item"><span class="schedule-item-kind">Until 7:30pm</span><span>Networking, live entertainment, sponsor engagement &amp; community celebration</span></div>
           </div>
