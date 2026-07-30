@@ -759,48 +759,40 @@
     .schedule-row {
       display: grid;
       grid-template-columns: 100px 1fr;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(0,0,0,0.18);
       border-left: 3px solid transparent;
-      background: rgba(0,0,0,0.22);
-      transition: background 0.2s, border-color 0.2s;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.15s, border-color 0.15s;
     }
     .schedule-row:last-child { border-bottom: none; }
     .schedule-row:hover {
-      background: rgba(0,0,0,0.34);
+      background: rgba(0,0,0,0.32);
       border-left-color: var(--amber);
-    }
-    .schedule-row.is-break:hover {
-      background: rgba(245,166,35,0.22);
-      border-left-color: var(--amber);
-    }
-    .schedule-row.is-after:hover {
-      background: rgba(0,0,0,0.38);
-      border-left-color: #fff;
     }
 
     .schedule-row.is-break {
-      background: rgba(245,166,35,0.14);
+      background: rgba(245,166,35,0.1);
       border-left: 3px solid var(--amber);
     }
     .schedule-row.is-break .schedule-time { color: var(--amber); }
     .schedule-row.is-break .schedule-stream { color: var(--amber); }
 
     .schedule-row.is-after {
-      background: rgba(0,0,0,0.3);
-      border-left: 3px solid rgba(255,255,255,0.5);
+      background: rgba(0,0,0,0.28);
+      border-left: 3px solid rgba(255,255,255,0.4);
     }
-    .schedule-row.is-after .schedule-time { color: #fff; }
-    .schedule-row.is-after .schedule-stream { color: rgba(255,255,255,0.7); }
+    .schedule-row.is-after .schedule-time { color: rgba(255,255,255,0.9); }
+    .schedule-row.is-after .schedule-stream { color: rgba(255,255,255,0.6); }
 
     .schedule-time {
       padding: 20px 16px;
-      background: rgba(0,0,0,0.28);
+      background: rgba(0,0,0,0.22);
       font-size: 13px;
       font-weight: 700;
       color: var(--amber);
       display: flex;
       align-items: flex-start;
-      border-right: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid rgba(0,0,0,0.15);
     }
 
     .schedule-body {
