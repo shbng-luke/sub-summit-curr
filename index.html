@@ -730,19 +730,6 @@
 </head>
 <body>
 
-<!-- ── ANNOUNCEMENT BAR ─────────────────────────────────────── -->
-<style>
-  .announce-bar { background:#68925B;color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:0.01em; }
-  @media (max-width: 768px) { .announce-bar { display:none; } }
-  .announce-bar strong { color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-right:6px; }
-  .announce-btn { display:inline-block;background:#fff;color:#111;font-weight:800;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;padding:5px 16px;border-radius:4px;text-decoration:none;margin-left:8px;transition:background 0.2s,color 0.2s,transform 0.15s; }
-  .announce-btn:hover { background:#111;color:#fff;transform:translateY(-3px); }
-</style>
-<div class="announce-bar">
-  <strong>Next Event:</strong>
-  Illawarra Sub Summit &mdash; Sept 17th, 2026 @ Dapto Ribbonwood Centre &nbsp;
-  <a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026" target="_blank" rel="noopener" class="announce-btn">Get Earlybird Tickets Here</a>
-</div>
 
 <!-- ── HEADER ──────────────────────────────────────────────── -->
 <header class="header">
@@ -776,7 +763,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <p class="nav-drawer-category">Upcoming Events</p>
-    <a href="events/illawarra.html" class="nav-sub">Illawarra &mdash; September 2026</a>
+    <a href="events/illawarra.html" class="nav-sub">Illawarra &mdash; 2027 Date TBA</a>
     <p class="nav-drawer-category">Past Events</p>
     <a href="events/northern-beaches.html" class="nav-sub">Northern Beaches &mdash; June 2026</a>
     <a href="events/central-coast.html" class="nav-sub">Central Coast &mdash; March 2026</a>
@@ -800,12 +787,9 @@
       <h1 class="hero-title"><span style="white-space:nowrap">Suburban Business Summit</span><br>— Illawarra</h1>
       <div class="hero-meta">
         <span class="hero-meta-item">Dapto Ribbonwood Centre</span>
-        <span class="hero-meta-item">Thursday, September 17th, 2026</span>
+        <span class="hero-meta-item">2027 · Date To Be Announced</span>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;">
-        <a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026" target="_blank" rel="noopener" class="btn-hero">
-          Get Earlybird Tickets
-        </a>
         <a href="events/illawarra.html" class="btn-hero" style="background:transparent;border:2px solid rgba(255,255,255,0.35);color:var(--white);">
           About the Event
         </a>
@@ -814,48 +798,6 @@
   </div>
 </section>
 
-<!-- ── DUAL COUNTDOWN ──────────────────────────────────────────── -->
-<section class="dual-countdown">
-  <div class="container">
-    <div class="dual-countdown-inner">
-
-      <div class="event-card event-card-il">
-        <p class="event-card-badge">Next Event</p>
-        <h3 class="event-card-title">Book Tickets for Sept 17</h3>
-        <p class="event-card-date">Thursday 17 September 2026 &bull; Dapto Ribbonwood Centre</p>
-        <div class="countdown-units">
-          <div class="countdown-unit"><span class="countdown-num" id="il-d">--</span><span class="countdown-lbl">Days</span></div>
-          <span class="countdown-sep">:</span>
-          <div class="countdown-unit"><span class="countdown-num" id="il-h">--</span><span class="countdown-lbl">Hrs</span></div>
-          <span class="countdown-sep">:</span>
-          <div class="countdown-unit"><span class="countdown-num" id="il-m">--</span><span class="countdown-lbl">Min</span></div>
-          <span class="countdown-sep">:</span>
-          <div class="countdown-unit"><span class="countdown-num" id="il-s">--</span><span class="countdown-lbl">Sec</span></div>
-        </div>
-        <div class="event-card-btns"><a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026" target="_blank" rel="noopener" class="event-card-btn event-card-btn-outline" style="flex:1">Earlybird Tickets Now Available</a><a href="events/illawarra.html" class="event-card-btn-info">Event Info</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  function pad(n){ return String(n).padStart(2,'0'); }
-
-  function updateIL(){
-    var diff = new Date('2026-09-17T08:00:00+10:00') - new Date();
-    if(diff <= 0){ ['il-d','il-h','il-m','il-s'].forEach(function(id){ document.getElementById(id).textContent='00'; }); return; }
-    var d=Math.floor(diff/864e5), h=Math.floor((diff%864e5)/36e5), m=Math.floor((diff%36e5)/6e4), s=Math.floor((diff%6e4)/1e3);
-    document.getElementById('il-d').textContent=d;
-    document.getElementById('il-h').textContent=pad(h);
-    document.getElementById('il-m').textContent=pad(m);
-    document.getElementById('il-s').textContent=pad(s);
-  }
-
-  updateIL(); setInterval(updateIL,1000);
-})();
-</script>
 
 
 <!-- ── BOOK TICKETS ──────────────────────────────────────────── -->
@@ -864,14 +806,14 @@
   <div class="book-tickets-overlay"></div>
   <div class="container">
     <div class="book-tickets-content">
-      <h2 class="book-tickets-title">Book Tickets for Sept 17</h2>
+      <h2 class="book-tickets-title">Coming to Illawarra in 2027</h2>
       <ul class="book-tickets-list">
         <li>Hear real stories and practical insights from local leaders, innovators, and partners like Redefine Finance, Service NSW, Charity Collaboration, and Fair Play Entertainment.</li>
         <li>Get warm introductions to charities, trades, community leaders, and ecosystem partners who actively back local business.</li>
         <li>Put your business in front of local decision-makers and potential customers in one place, alongside trusted supporters such as Redefine Finance, Service NSW, Charity Collaboration, and Fair Play Entertainment.</li>
       </ul>
-      <a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026" target="_blank" rel="noopener" class="btn-book">
-        Earlybird Tickets Now Available
+      <a href="events/illawarra.html" class="btn-book">
+        Event Info
       </a>
     </div>
   </div>
@@ -968,8 +910,8 @@ function playYT() {
     <div class="cta-banner-inner">
       <h2>Ready to be part of the next Suburban Business Summit?</h2>
       <div class="cta-banner-actions">
-        <a href="https://events.humanitix.com/suburban-business-summit-illawarra-2026" target="_blank" rel="noopener" class="btn-solid" style="font-size: 15px; padding: 14px 32px;">
-          Earlybird Tickets Now Available
+        <a href="events/illawarra.html" class="btn-solid" style="font-size: 15px; padding: 14px 32px;">
+          Event Info
         </a>
         <a href="sponsorship-partnership-packages.html" class="btn-outline" style="font-size: 15px; padding: 14px 32px;">
           Sponsorship Packages
@@ -994,7 +936,7 @@ function playYT() {
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Upcoming Events</p>
-        <a href="events/illawarra.html">Illawarra &mdash; September 2026</a>
+        <a href="events/illawarra.html">Illawarra &mdash; 2027 Date TBA</a>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Past Events</p>
